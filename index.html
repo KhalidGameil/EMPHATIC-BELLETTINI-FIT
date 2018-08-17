@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bellettini Fit of Reconstructed Data</title>
+
+		<meta name="description" content="A method to estimate the mean number of photons of a PMT ADC spectrum">
+		<meta name="author" content="Khalid Gameil">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+			<script src="lib/js/html5shiv.js"></script>
+			<![endif]-->
+			<style>
+img.two {
+	height: auto;
+	width: 130%;
+}
+			</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1> Bellettini Fit </h1>
+					<h1> of </h1> 
+					<h1> Reconstructed Data</h1>
+					<p>
+					Khalid Gameil
+					</p>
+				</section>
+				<section>
+					<h2> Summary of Analysis: </h2>
+					<ul>
+					<li> Analysis was performed on 30GeV/c graphite target data (Runs 250-251)</li>
+					<li> Fitting the Coulomb and Elastic components of the t distribution:</li>
+					<center>
+						<p>
+						\[\begin{equation}\begin{split}
+\frac{d\sigma}{dt} &= \frac{\pi}{p^2} \left(C^2 + I^2\right)\\
+&= \pi \left(\frac{2 Z r_e m c}{t}\right)^2 \times \exp{-\frac{a^2}{3\hbar^2} |t|} + 
+\frac{1}{\pi} \left( \frac{\sigma_{tot}}{4\hbar} \right)^2 \times \exp{-B|t|}. \\
+\end{split}
+\end{equation}\]
+						</p>
+					</center>
+					<li> Bellettini subtracts the coulomb component because there are no fitted values </li>
+					<center> <p> $a = 2.42E-15meter$ </p> </center>
+					<center> <p> m = mass of electron </p> </center>
+					<center> <p> $r_e$ = radius of electron </p> </center>
+					<li> Fitting the elastic region seperately: </li>
+
+					<center>
+						<p>
+\[\begin{equation} \label{eq:quasi2}
+\begin{split}
+\frac{d\sigma}{dt} &\approx N(A) (92.77) \exp{-10.2|t|}.
+\end{split}
+\end{equation}\]
+						</p>
+					</center>
+					</ul>
+				</section>
+				<section>
+					<h2> Previous Issues with $\chi^2$ (Monicelli): </h2>
+					<ul>
+					<li> The $\chi^2$ is very sensitive to the lower bound of elastic/Coulomb fit: </li> 
+					<ul>
+						<li> Not fitting at $t \approx 0$ because the Coulomb equation diverges at that point </li> 
+						<li> Due to the real part of the elastic scatter being neglected the cross term be-tween the real component and the Coulomb scatter is not considered </li> 
+						<li> The Coulomb region also contains an imaginary phase that also needs to be considered for the cross term </li> 
+						<li> Bellettini's minimum t-value for the elastic/Coulomb region is $\approx 0.002 GeV^2c^{-2}$</li> 
+						
+					</ul>
+					</ul>
+						<img  width=60% src="images/chiGraph.jpg">
+
+				</section>
+
+				<section>
+					<h2> Previous Results: </h2>
+					<p> $\sigma_{tot} = 334 \pm 2mb~~~~~\sigma_{prod} = 212 \pm 3mb$ </p>
+					<p> $B = 65 \pm 1~~~~~ N(pN) = 3.4 \pm 0.4$ </p>
+					<ul>
+					<div style="text-align: left; float: left; width: 50%; font-size:80%">
+							<div class="container">				  
+								<img  src="images/belletiniFit.jpg">
+								<div class="Title"> Original </div>				  
+							</div>	  
+					</div>
+					<div style="text-align: right; float: right; width: 50%; font-size:80%">
+							<div class="container">				  
+								<img src="images/belletiniFit_CoulombSubtracted.jpg">
+								<div class="Title">
+									Coulomb Subtracted	  
+								</div>
+							</div>
+					</div>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2> Current $\chi^2$ (New Reconstruction from Raw): </h2>
+						<img  width=100% src="images/chiGraphNew.jpg">
+
+				</section>
+
+				<section>
+					<h2> Current Results (New Reconstruction from Raw): </h2>
+					<p> $\sigma_{tot} = 361 \pm 1mb~~~~~\sigma_{prod} = 241 \pm 3mb$ </p>
+					<p> $B = 71.1 \pm 0.5~~~~~ N(pN) = 3.64 \pm 0.06$ </p>
+					<ul>
+					<div style="text-align: left; float: left; width: 50%; font-size:80%">
+							<div class="container">				  
+								<img  src="images/belletiniFitNew.jpg">
+								<div class="Title"> Original </div>				  
+							</div>	  
+					</div>
+					<div style="text-align: right; float: right; width: 50%; font-size:80%">
+							<div class="container">				  
+								<img src="images/belletiniFit_CoulombSubtractedNew.jpg">
+								<div class="Title">
+									Coulomb Subtracted	  
+								</div>
+							</div>
+					</div>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2> Comparison of Total Cross Section: </h2>
+						<img  width=100% src="images/totalCrossSection.jpg">
+
+				</section>
+
+				<section>
+					<h2> Comparison of Production Cross Section: </h2>
+						<img  width=100% src="images/prodCrossSection.jpg">
+
+				</section>
+				<script src="lib/js/head.min.js"></script>
+				<script src="js/reveal.js"></script>
+
+				<script>
+
+					// More info https://github.com/hakimel/reveal.js#configuration
+					Reveal.initialize({
+						controls: true,
+						progress: true,
+						history: true,
+						center: true,
+						// Display the page number of the current slide
+						slideNumber: true,
+						transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+						math: {
+							// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+							config: 'TeX-AMS_HTML-full'
+						},
+
+						// More info https://github.com/hakimel/reveal.js#dependencies
+						dependencies: [
+							{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+							{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+							{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+							{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+							{ src: 'plugin/search/search.js', async: true },
+							{ src: 'plugin/zoom-js/zoom.js', async: true },
+							{ src: 'plugin/notes/notes.js', async: true },
+							{ src: 'plugin/math/math.js', async: true }
+						]
+					});
+
+				</script>
+
+
+				<script>
+					var _gaq = [['_setAccount', 'UA-15240703-1'], ['_trackPageview']];
+(function(d, t) {
+	var g = d.createElement(t),
+		s = d.getElementsByTagName(t)[0];
+	g.async = true;
+	g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g, s);
+})(document, 'script');
+				</script>
+
+				<script>
+					[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
+						element.addEventListener( 'click', function( event ) {
+							event.preventDefault();
+							var width = 500, height = 300;
+							var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
+							var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
+							window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
+						} );
+					} );
+
+if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+	document.querySelector( '.share-reveal' ).style.display = 'block';
+	document.querySelector( '.fork-reveal' ).style.display = 'block';
+}
+				</script>
+
+	</body>
+</html>
+
+
